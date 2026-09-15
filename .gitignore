@@ -1,0 +1,16 @@
+
+
+.idea
+*.vsconfig
+*.csproj
+*.user
+*.csproj
+*.sln
+*.suo
+*.lock
+*.ide
+*.ide-shm
+*.ide-wal
+*.vsconfig
+.DS_Store
+
