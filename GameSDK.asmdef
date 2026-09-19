@@ -1,7 +1,9 @@
 {
   "name": "GameSDK",
   "rootNamespace": "GameSDK",
-  "references": [],
+  "references": [
+    "GameInterface"
+  ],
   "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,
