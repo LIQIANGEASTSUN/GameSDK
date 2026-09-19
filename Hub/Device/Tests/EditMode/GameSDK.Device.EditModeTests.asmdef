@@ -1,0 +1,15 @@
+{
+  "name": "GameSDK.Device.EditModeTests",
+  "rootNamespace": "GameSDK.Tests",
+  "references": ["GameSDK", "GameInterface"],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": ["TestAssemblies"]
+}
