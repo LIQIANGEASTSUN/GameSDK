@@ -1,0 +1,15 @@
+{
+  "name": "GameSDK.Singleton.PlayModeTests",
+  "rootNamespace": "GameSDK.Tests",
+  "references": ["GameSDK"],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": ["TestAssemblies"]
+}
