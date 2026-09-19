@@ -1,6 +1,6 @@
 # 实现 MonoBehaviour 单例
 
-状态：`InProgress`；本轮精简后的独立检查及 Unity API 引用静态编译通过，待用户 Unity 验证。
+状态：`Done`；本轮精简后的独立检查及 Unity API 引用静态编译通过，用户确认 Unity 验证已完成。
 
 ## 交付与范围
 
@@ -57,7 +57,8 @@
 - [SingletonMono.cs](../../SingletonMono.cs) 唯一字段为 `_instance`；删除场景扫描、预置复用、Awake 自动接管及所有实例标记。创建失败由局部变量清理，成功后才登记，释放先撤销登记，旧销毁回调不影响新实例。本轮删除获取和创建过程中的全部四处运行／退出检查及 `started`，创建结束时只做一次候选有效性与实际激活检查；失败按托管候选是否存在补清理，直接销毁已创建的局部宿主。构造校验保留，不引入替代状态或检查方法。
 - 当前保留 [23 个 PlayMode 用例](../../Tests/PlayMode/SingletonMonoTests.cs)和 [1 个编辑对象隔离用例](../../Tests/Editor/SingletonMonoEditorTests.cs)。旧编辑模式获取拒绝及真实退出拒绝用例已取消，退出用例与专用探针随之删除；继续保留异常、同步失效、同帧重建、场景行为和外部组件隔离覆盖。
 - 独立检查发现并修复了一项激活边界问题：非活动父级可能阻止宿主实际激活。现在发布前检查 `activeInHierarchy`，对应补充非活动父级及 OnEnable 立即停用的失败清理和重试用例；最终独立审查无未关闭问题。
-- 本轮使用独立 Roslyn 编译器，以 Unity `6000.0.60f1` 的 .NET Standard 2.1、引擎模块和项目 NUnit／Test Runner 程序集为引用，重新编译最终运行时、PlayMode 和 Editor 测试源码，三组均通过。`git diff --check`、文档链接及删除文件的引用检查通过。未启动 Unity，未执行导入、Unity 编译或当前 24 个组件用例，静态结果不替代引擎验收。
+- 本轮 Agent 使用独立 Roslyn 编译器，以 Unity `6000.0.60f1` 的 .NET Standard 2.1、引擎模块和项目 NUnit／Test Runner 程序集为引用，重新编译最终运行时、PlayMode 和 Editor 测试源码，三组均通过。`git diff --check`、文档链接及删除文件的引用检查通过。Agent 未启动 Unity，未执行导入、Unity 编译或当前 24 个组件用例，静态结果不替代引擎验收。
+- 用户确认当前版本的 Unity 验证已完成，本任务验收完成；此项为用户确认，不表示 Agent 执行过 Unity 测试。
 
 以下记录对应已被替代的扫描／预置接管版本，其实现与验证结果不覆盖本轮。
 
@@ -72,9 +73,9 @@
 - 2026-09-19 本轮按用户要求删除两个枚举、静态阶段及原生销毁标记，只保留登记、宿主所有权和资源待清理／已退役两个事实；异常改为直接传播并在失败路径完成清理。由 `fsm_runtime` 先同步需求、本文及实现，`fsm_tests` 适配测试，主 Agent 与 `fsm_review` 独立检查，无未关闭问题。PlayMode 当前 38 例，移除旧公共重入保护预期，保留自动回调回归，新增 Awake 构造契约失败的零钩子与宿主保留验证；Editor 原 3 例保留。
 - 本轮使用 Mono 自带 Roslyn 3.9，以 Unity `6000.0.60f1` 的 .NET Standard 2.1、引擎模块和项目 NUnit／Test Runner 程序集为引用，分别编译实际运行时、PlayMode、Editor 测试源码，三组均通过；`git diff --check` 通过。未启动 Unity，未执行 38 个 PlayMode 或 3 个 Editor 用例；静态编译与审查不替代必要的引擎验证。
 
-待用户在项目指定 Unity `6000.0.60f1` 执行，确认无编译错误后：
+以下保留为复验入口，在项目指定 Unity `6000.0.60f1` 中确认无编译错误后执行：
 
 1. Test Runner → PlayMode，选择 `GameSDK.Singleton.PlayModeTests` 全部 23 个用例，预期全部通过、无跳过。
 2. Test Runner → EditMode，选择 `GameSDK.Singleton.EditorLifecycleTests` 的 1 个 `ExecuteAlways` 编辑对象隔离用例，预期通过、无跳过；不执行编辑／退出期获取拒绝验证。
 
-当前必要 Unity 验证均待执行，状态保持 `InProgress`。后续依据本次产物的 Unity 反馈修复并复查，必要验证全部通过后再判断 Done。实现尚未提交，随 GameSDK 子模块工作区交付。
+当前任务依据既有 Agent 检查结果及用户的 Unity 验证确认标记为 `Done`；上述历史未执行记录不代表当前待办。
