@@ -99,8 +99,8 @@ Unity 导入、编译及测试由用户执行，Agent 提供步骤；必要项�
 
 使用项目指定的 Unity `6000.0.60f1`，串行验证，记录实际通过／失败／未执行。本项目使用嵌入包，无需修改 manifest 的 `testables`，见 [Unity 包测试说明](https://docs.unity3d.com/6000.0/Documentation/Manual/cus-tests.html)。
 
-1. **导入、编译与首次默认状态**：确认无编译错误；在新加载脚本域中，任何 `UtilsLog` 配置调用、普通规则测试或手动探针之前，在 Test Runner → EditMode 单独选中 `GameSDK.Tests.UtilsLogInitialStateTests.FreshDomainForwardsEveryLevelBeforeAnyConfiguration` 并运行。预期该用例实际通过，四种输出均被转发；它带 `Explicit`，普通 Run All 中跳过不能算通过。若已运行其他验证，重新打开工程取得新脚本域后再验证本项，不能以测试设置的基线证明初始值。
-2. **规则与失败路径**：选中 `GameSDK.Tests.UtilsLogTests` 运行全部 36 个用例，预期均通过；不要同时运行其他会修改全局 logger 的测试或启用 Play 探针。夹具在每例后恢复模块基线及先前的 Unity 日志设置、处理器。
+1. **导入、编译与首次默认状态**：确认无编译错误；在新加载脚本域中，任何 `UtilsLog` 配置调用、普通规则测试或手动探针之前，在 Test Runner → EditMode 单独选中 `GameSDK.UtilsLogInitialStateTests.FreshDomainForwardsEveryLevelBeforeAnyConfiguration` 并运行。预期该用例实际通过，四种输出均被转发；它带 `Explicit`，普通 Run All 中跳过不能算通过。若已运行其他验证，重新打开工程取得新脚本域后再验证本项，不能以测试设置的基线证明初始值。
+2. **规则与失败路径**：选中 `GameSDK.UtilsLogTests` 运行全部 36 个用例，预期均通过；不要同时运行其他会修改全局 logger 的测试或启用 Play 探针。夹具在每例后恢复模块基线及先前的 Unity 日志设置、处理器。
 3. **两种 Domain Reload 设置下的重复 Play**：使用无其他 `UtilsLog` 配置消费者的隔离空场景，记下原场景与 Enter Play Mode 设置，保持 Scene Reload 开启。先开启 Domain Reload，再执行 `Tools > GameSDK > Log > Arm Play Session Checks`，菜单会显式设置关闭／Error；连续进入／退出 Play 两次，预期每次通过字段重新初始化为开启／Info 的验证。随后关闭 Domain Reload，重新 Arm 设置关闭／Error 并清空计数，再连续进入／退出 Play 两次，预期每次先验证全部输出关闭，再仅开启输出并验证阈值仍为 Error。探针随后显式配置 Warning，验证即时生效，末尾留下关闭／Error。每组预期分别出现第 1、2 次 `UtilsLog Play PASS`，任何 `FAIL` 均需反馈。每组两次之间不运行规则测试、不 Disarm、不重新 Arm、不修改脚本或触发重编译，以保持连续会话验证条件。
 4. **真实异常与 Console 可见性**：探针启用且处于 Play 时执行 `Emit Exception With Context`，Console 应保留 `InvalidOperationException`、`UtilsLog original exception / 原始异常定位验证` 消息及 `ThrowOriginalProbeException` 原始抛出位置；点击该条目的上下文应定位 `UtilsLog exception context` 对象。此条红色异常是预期验证输出。关闭 Console 对应等级按钮再发出一次，重新打开按钮后应能看到已产生的记录；同样切换普通 Log 可见性观察直接 Unity 输出的 Play PASS。Console 隐藏不等于包装层未转发，包装层与 Unity 全局过滤的调用计数由第 2 项验证。
 5. **收尾**：退出 Play，确认临时上下文对象已清理，执行 `Disarm Play Session Checks` 恢复模块开启／Info，恢复原场景、Console 和 Enter Play Mode 设置。汇报首次默认用例、36 个规则用例、两组重复 Play、异常定位及 Console 观察的结果。
