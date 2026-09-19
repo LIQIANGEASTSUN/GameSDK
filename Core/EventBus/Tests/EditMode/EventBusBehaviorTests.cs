@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using GameSDK.EventBusTestSupport;
 using NUnit.Framework;
 
-namespace GameSDK.Tests.EventBusTests
+namespace GameSDK
 {
     [TestFixture]
     public sealed class EventBusBehaviorTests
@@ -602,7 +601,10 @@ namespace GameSDK.Tests.EventBusTests
     }
 }
 
-namespace GameSDK.Tests.EventBusTests.Local
+namespace GameSDK
 {
-    internal sealed class SharedEventPayload { }
+    internal static class Local
+    {
+        internal sealed class SharedEventPayload { }
+    }
 }

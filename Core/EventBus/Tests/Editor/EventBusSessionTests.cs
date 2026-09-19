@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace GameSDK.Tests.EventBusTests
+namespace GameSDK
 {
     // Run in an isolated saved scene. These named host operations own session cleanup;
     // neither the test nor production code installs automatic Play-state reset hooks.

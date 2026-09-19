@@ -3,18 +3,20 @@
 // Action<DerivedPayload> cannot consume arbitrary BasePayload values; the reverse
 // Action<BasePayload> -> Subscribe<DerivedPayload> conversion is legal and tested.
 using System;
-using GameSDK;
 
-internal static class InvalidEventBusVariance
+namespace GameSDK
 {
-    private class BasePayload { }
-    private sealed class DerivedPayload : BasePayload { }
-
-    private static void RejectedAtCompileTime()
+    internal static class InvalidEventBusVariance
     {
-        Action<DerivedPayload> callback = ReceiveDerived;
-        EventBus.Instance.Subscribe<BasePayload>("EventBus.Negative.Compile", callback);
-    }
+        private class BasePayload { }
+        private sealed class DerivedPayload : BasePayload { }
 
-    private static void ReceiveDerived(DerivedPayload value) { }
+        private static void RejectedAtCompileTime()
+        {
+            Action<DerivedPayload> callback = ReceiveDerived;
+            EventBus.Instance.Subscribe<BasePayload>("EventBus.Negative.Compile", callback);
+        }
+
+        private static void ReceiveDerived(DerivedPayload value) { }
+    }
 }

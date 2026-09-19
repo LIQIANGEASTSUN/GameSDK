@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using GameSDK.EventBusTestSupport;
 using UnityEngine;
 
-namespace GameSDK.Tests.EventBusTests
+namespace GameSDK
 {
     internal sealed class Listener
     {

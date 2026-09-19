@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Reflection;
 using NUnit.Framework;
 
-namespace GameSDK.Tests.EventBusTests
+namespace GameSDK
 {
     // Explicit: select this fixture to measure all cases. Run without profiling/deep profiling.
     // Release/optimized builds and a warmed runtime are required for acceptance numbers.

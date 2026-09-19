@@ -1,6 +1,6 @@
 {
   "name": "GameSDK.EventBus.TestSupport",
-  "rootNamespace": "GameSDK.Tests.EventBusTests",
+  "rootNamespace": "GameSDK",
   "references": [
     "GameSDK"
   ],

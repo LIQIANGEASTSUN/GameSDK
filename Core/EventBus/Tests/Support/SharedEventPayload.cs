@@ -1,4 +1,4 @@
-namespace GameSDK.EventBusTestSupport
+namespace GameSDK
 {
     // Defined once in this assembly and consumed by listeners in both test assemblies.
     public sealed class SharedEventPayload
