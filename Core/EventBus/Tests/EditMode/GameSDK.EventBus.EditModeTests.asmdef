@@ -1,0 +1,22 @@
+{
+  "name": "GameSDK.EventBus.EditModeTests",
+  "rootNamespace": "GameSDK.Tests.EventBusTests",
+  "references": [
+    "GameSDK",
+    "GameSDK.EventBus.TestSupport"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

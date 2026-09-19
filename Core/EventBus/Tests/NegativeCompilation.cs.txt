@@ -1,0 +1,20 @@
+// Intentionally excluded from Unity compilation by the .txt extension.
+// Compile this file separately against the real GameSDK assembly: CS1503 is required.
+// Action<DerivedPayload> cannot consume arbitrary BasePayload values; the reverse
+// Action<BasePayload> -> Subscribe<DerivedPayload> conversion is legal and tested.
+using System;
+using GameSDK;
+
+internal static class InvalidEventBusVariance
+{
+    private class BasePayload { }
+    private sealed class DerivedPayload : BasePayload { }
+
+    private static void RejectedAtCompileTime()
+    {
+        Action<DerivedPayload> callback = ReceiveDerived;
+        EventBus.Instance.Subscribe<BasePayload>("EventBus.Negative.Compile", callback);
+    }
+
+    private static void ReceiveDerived(DerivedPayload value) { }
+}
