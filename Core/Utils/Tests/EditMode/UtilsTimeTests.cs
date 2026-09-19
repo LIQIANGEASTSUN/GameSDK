@@ -6,7 +6,7 @@ using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     [TestFixture]
     [Parallelizable(ParallelScope.None)]

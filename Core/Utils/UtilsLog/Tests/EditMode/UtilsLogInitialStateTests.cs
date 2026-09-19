@@ -2,7 +2,7 @@ using System;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     [TestFixture]
     public sealed class UtilsLogInitialStateTests

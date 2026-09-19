@@ -1,6 +1,6 @@
 {
   "name": "GameSDK.Device.EditModeTests",
-  "rootNamespace": "GameSDK.Tests",
+  "rootNamespace": "GameSDK",
   "references": ["GameSDK", "GameInterface"],
   "includePlatforms": ["Editor"],
   "excludePlatforms": [],

@@ -1,6 +1,6 @@
 {
   "name": "GameSDK.Device.Editor",
-  "rootNamespace": "GameSDK.Editor",
+  "rootNamespace": "GameSDK",
   "references": [],
   "includePlatforms": ["Editor"],
   "excludePlatforms": [],

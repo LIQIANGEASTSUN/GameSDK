@@ -4,7 +4,7 @@ using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     // 手动验证消费者：仅在菜单启用后运行，不改场景或 Enter Play Mode 设置。
     [InitializeOnLoad]

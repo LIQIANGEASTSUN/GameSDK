@@ -5,7 +5,7 @@ using GameInterface;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     public sealed class DeviceServiceTests
     {

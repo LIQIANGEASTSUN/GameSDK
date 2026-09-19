@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     // 仅在串行隔离的验证期间替换处理器，避免依赖 Console 的可见性。
     internal sealed class LogCapture : ILogHandler, IDisposable

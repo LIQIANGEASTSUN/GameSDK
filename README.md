@@ -10,7 +10,7 @@
 ## 依赖与程序集
 
 - 依赖 [GameInterface](../GameInterface/README.md) 及适配所需的第三方库，不反向依赖 GameHub 或宿主项目实现，不形成循环。
-- 自有运行时代码由一个程序集承载，按功能目录与命名空间组织，不逐功能拆分 asmdef；Editor、Tests 与运行时隔离，不合并第三方程序集。
+- 自有运行时代码由一个程序集承载，按功能目录组织，不逐功能拆分 asmdef；包内 C# 代码（含 Editor、Tests）统一使用 `GameSDK` 命名空间，各 asmdef 的 `rootNamespace` 同样为 `GameSDK`。Editor、Tests 与运行时隔离，不合并第三方程序集。
 
 ## 接入约定
 

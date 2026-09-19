@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.iOS.Xcode;
 
-namespace GameSDK.Editor
+namespace GameSDK
 {
     internal static class DeviceIosBuildProcessor
     {
