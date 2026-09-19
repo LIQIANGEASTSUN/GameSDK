@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using NUnit.Framework;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     [TestFixture]
     [Parallelizable(ParallelScope.None)]
