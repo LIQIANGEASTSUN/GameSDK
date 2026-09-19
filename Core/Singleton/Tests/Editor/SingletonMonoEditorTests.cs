@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     public sealed class SingletonMonoEditorTests
     {

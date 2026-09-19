@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 using Object = UnityEngine.Object;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     public sealed class SingletonMonoTests
     {

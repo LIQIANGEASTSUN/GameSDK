@@ -1,6 +1,6 @@
 {
   "name": "GameSDK.Singleton.EditorLifecycleTests",
-  "rootNamespace": "GameSDK.Tests",
+  "rootNamespace": "GameSDK",
   "references": [
     "GameSDK",
     "GameSDK.Singleton.PlayModeTests"

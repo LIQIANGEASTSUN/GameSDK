@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Threading;
 using NUnit.Framework;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     [TestFixture]
     public sealed class SingletonTests

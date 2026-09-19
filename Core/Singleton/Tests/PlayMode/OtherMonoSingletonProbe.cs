@@ -1,4 +1,4 @@
-namespace GameSDK.Tests
+namespace GameSDK
 {
     public sealed class OtherMonoSingletonProbe : SingletonMono<OtherMonoSingletonProbe>
     {

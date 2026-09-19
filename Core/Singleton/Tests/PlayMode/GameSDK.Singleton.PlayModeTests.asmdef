@@ -1,6 +1,6 @@
 {
   "name": "GameSDK.Singleton.PlayModeTests",
-  "rootNamespace": "GameSDK.Tests",
+  "rootNamespace": "GameSDK",
   "references": ["GameSDK"],
   "includePlatforms": [],
   "excludePlatforms": [],

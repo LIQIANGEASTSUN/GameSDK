@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     [ExecuteAlways]
     public sealed class SingletonMonoEditWorldProbe : SingletonMono<SingletonMonoEditWorldProbe>

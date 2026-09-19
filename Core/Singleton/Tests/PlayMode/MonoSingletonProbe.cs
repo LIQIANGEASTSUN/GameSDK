@@ -1,6 +1,6 @@
 using System;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     public class MonoSingletonProbe : SingletonMono<MonoSingletonProbe>
     {
