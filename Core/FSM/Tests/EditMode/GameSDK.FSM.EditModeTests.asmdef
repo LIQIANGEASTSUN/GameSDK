@@ -1,6 +1,6 @@
 {
   "name": "GameSDK.FSM.EditModeTests",
-  "rootNamespace": "GameSDK.Tests",
+  "rootNamespace": "GameSDK",
   "references": ["GameSDK"],
   "includePlatforms": ["Editor"],
   "excludePlatforms": [],

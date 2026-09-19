@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using NUnit.Framework;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     public sealed class StateMachineHostTests
     {

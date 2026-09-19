@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using NUnit.Framework;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     public sealed partial class StateMachineTests
     {

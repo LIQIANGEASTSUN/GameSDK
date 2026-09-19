@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace GameSDK.Tests
+namespace GameSDK
 {
     public sealed partial class StateMachineTests
     {
